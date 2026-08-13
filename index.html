@@ -243,6 +243,29 @@ section { padding: 120px 0; position: relative; }
 .sec-head p { color: var(--ink-soft); font-size: 15px; line-height: 1.75; }
 @media (max-width: 760px) { .sec-head { grid-template-columns: 1fr; align-items: flex-start; gap: 18px; margin-bottom: 36px; } }
 
+/* ============ name story ============ */
+.name-story { background: var(--bg-soft); }
+.name-story-grid { display: grid; grid-template-columns: 0.85fr 1.3fr; gap: 56px; align-items: center; }
+.name-story-mascot { display: flex; justify-content: center; }
+.name-story-mascot img { width: 100%; max-width: 300px; display: block; filter: drop-shadow(0 16px 26px rgba(58,40,0,0.16)); }
+.name-story-label {
+  font-family: var(--font-body); font-size: 13px; color: var(--accent-3);
+  font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 14px; display: block;
+}
+.name-story-text h2 { font-size: clamp(28px, 3.4vw, 42px); margin-bottom: 22px; text-wrap: balance; }
+.name-story-hello {
+  font-family: var(--font-display); font-size: 22px; font-weight: 700;
+  margin-bottom: 16px; color: var(--ink);
+}
+.name-story-hello strong { color: var(--accent-3); }
+.name-story-text p { font-size: 15.5px; color: var(--ink-soft); line-height: 1.85; margin-bottom: 14px; }
+.name-story-text p:last-child { margin-bottom: 0; }
+.name-story-text strong { color: var(--ink); font-weight: 700; }
+@media (max-width: 860px) {
+  .name-story-grid { grid-template-columns: 1fr; gap: 28px; text-align: center; }
+  .name-story-mascot img { max-width: 220px; }
+}
+
 /* ============ philosophy ============ */
 .philosophy { background: var(--bg-soft); }
 .philosophy-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
@@ -597,6 +620,22 @@ footer { padding: 64px 0 40px; border-top: 1px solid var(--line); margin-top: 80
   <div class="hero-scroll">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
     scroll
+  </div>
+</section>
+
+<!-- NAME STORY -->
+<section class="name-story">
+  <div class="container name-story-grid">
+    <div class="name-story-mascot">
+      <img src="images/mascot-solo.png" alt="솜토리">
+    </div>
+    <div class="name-story-text">
+      <span class="name-story-label">OUR STORY</span>
+      <h2>솜사탕어린이집,<br>이름에 담긴 이야기</h2>
+      <p class="name-story-hello">안녕하세요, 저는 <strong>솜토리</strong>예요!</p>
+      <p>작고 하얀 설탕 알갱이가 따뜻한 바람을 만나 보드랍고 달콤한 솜사탕이 되는 것처럼, 아이도 사랑과 관심, 좋은 경험을 만나 자신만의 빛깔로 아름답게 자랍니다.</p>
+      <p>그 이름처럼 <strong>솜사탕어린이집</strong>은 아이 한 명 한 명이 자신만의 속도로, 자신만의 빛깔로 피어날 수 있도록 곁에서 기다리고 함께합니다. 그 성장의 순간마다 솜토리가 함께해요.</p>
+    </div>
   </div>
 </section>
 
