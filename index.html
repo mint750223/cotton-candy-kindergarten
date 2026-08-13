@@ -227,13 +227,18 @@ section { padding: 120px 0; position: relative; }
 }
 .hero-ctas { display: flex; gap: 14px; margin-top: 32px; flex-wrap: wrap; }
 .hero-illustration { display: flex; justify-content: center; }
-.hero-quote-card {
-  width: 100%; max-width: 420px; border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg); display: block;
+.hero-mascot-crop {
+  width: 241px; height: 300px; overflow: hidden; border-radius: var(--radius-lg);
+  position: relative; box-shadow: var(--shadow-lg); background: var(--card);
+}
+.hero-mascot-crop img {
+  position: absolute; top: 0; left: -345px; width: 586px; height: 300px; max-width: none;
 }
 @media (max-width: 900px) {
   .hero-grid { grid-template-columns: 1fr; }
-  .hero-illustration { order: -1; max-width: 260px; margin: 0 auto; }
+  .hero-illustration { order: -1; }
+  .hero-mascot-crop { width: 193px; height: 240px; }
+  .hero-mascot-crop img { left: -276px; width: 469px; height: 240px; }
 }
 .hero-scroll {
   position: absolute; bottom: 36px; left: 50%;
@@ -606,7 +611,9 @@ footer { padding: 64px 0 40px; border-top: 1px solid var(--line); margin-top: 80
         </div>
       </div>
       <div class="hero-illustration">
-        <img src="images/mascot-quote.png" alt="솜사탕어린이집 마스코트" class="hero-quote-card">
+        <div class="hero-mascot-crop">
+          <img src="images/mascot-quote.png" alt="솜사탕어린이집 마스코트">
+        </div>
       </div>
     </div>
   </div>
