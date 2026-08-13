@@ -87,7 +87,7 @@ section { padding: 120px 0; position: relative; }
   border-bottom: 1px solid color-mix(in srgb, var(--line) 60%, transparent);
   box-shadow: var(--shadow-sm);
 }
-.nav-inner { display: flex; align-items: center; justify-content: space-between; height: 88px; }
+.nav-inner { display: flex; align-items: center; justify-content: space-between; height: 104px; }
 .brand {
   display: flex; align-items: center; gap: 12px;
   font-family: var(--font-display); font-weight: 700; font-size: 20px; white-space: nowrap;
@@ -100,7 +100,7 @@ section { padding: 120px 0; position: relative; }
   color: #fff; font-family: var(--font-accent); font-size: 18px;
   box-shadow: var(--shadow-sm); flex-shrink: 0;
 }
-.brand-logo-img { height: 78px; width: auto; display: block; flex-shrink: 0; }
+.brand-logo-img { height: 94px; width: auto; display: block; flex-shrink: 0; }
 /* hero 위에서는 흰색으로 */
 .nav:not(.scrolled) .brand { color: #fff; }
 .nav:not(.scrolled) .nav-links a { color: rgba(255,255,255,0.85); }
@@ -204,37 +204,17 @@ section { padding: 120px 0; position: relative; }
   content: ""; width: 6px; height: 6px; border-radius: 50%;
   background: var(--accent); flex-shrink: 0;
 }
-.hero-grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: 32px; align-items: center; }
-.hero-quote {
-  font-family: var(--font-display); font-weight: 700;
-  font-size: clamp(24px, 3.4vw, 38px);
-  line-height: 1.4;
-  margin: 26px 0 20px;
-  color: #fff;
-  text-shadow: 0 2px 24px rgba(0,0,0,0.25);
-}
-.hero-quote .accent { color: var(--accent); }
-.hero-tagline {
-  font-family: var(--font-display); font-weight: 700; font-size: 16px;
-  color: var(--accent); margin-top: 16px;
-}
-.hero-sub {
-  font-family: var(--font-display);
-  font-size: clamp(16px, 1.4vw, 19px);
-  color: rgba(255,255,255,0.82);
-  max-width: 520px;
-  line-height: 1.75;
-}
-.hero-ctas { display: flex; gap: 14px; margin-top: 32px; flex-wrap: wrap; }
+.hero-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 32px; align-items: center; }
+.hero-ctas { display: flex; gap: 14px; margin-top: 30px; flex-wrap: wrap; }
 .hero-illustration { display: flex; justify-content: center; }
 .hero-quote-card {
-  width: 100%; max-width: 640px; display: block;
+  width: 100%; max-width: 760px; display: block;
   filter: drop-shadow(0 18px 30px rgba(0,0,0,0.22));
 }
 @media (max-width: 900px) {
   .hero-grid { grid-template-columns: 1fr; }
   .hero-illustration { order: -1; }
-  .hero-quote-card { max-width: 420px; margin: 0 auto; }
+  .hero-quote-card { max-width: 480px; margin: 0 auto; }
 }
 .hero-scroll {
   position: absolute; bottom: 36px; left: 50%;
@@ -250,7 +230,6 @@ section { padding: 120px 0; position: relative; }
   50% { transform: translateX(-50%) translateY(6px); }
 }
 @media (max-width: 760px) {
-  .hero-quote { font-size: clamp(21px, 6vw, 30px); }
   .hero-ctas { flex-direction: column; align-items: flex-start; }
 }
 
@@ -599,9 +578,6 @@ footer { padding: 64px 0 40px; border-top: 1px solid var(--line); margin-top: 80
     <div class="container hero-grid">
       <div class="hero-text">
         <span class="hero-eyebrow">공공형 어린이집 · 2027학년도 원아 모집 중</span>
-        <p class="hero-quote">"작은 설탕 알갱이가 솜사탕으로 피어나듯,<br>아이들의 작은 가능성이 사랑을 만나<br><span class="accent">아름답게 성장한다</span>"</p>
-        <p class="hero-sub">솜사탕은 작고 하얀 설탕 알갱이가 따뜻한 바람을 만나 보드랍고 달콤한 솜사탕이 되는 것처럼, 아이도 사랑과 관심, 좋은 경험을 만나 자신만의 빛깔로 아름답게 자랍니다.</p>
-        <p class="hero-tagline">우리는 그 과정을 함께하는 '솜사탕의 친구'입니다.</p>
         <div class="hero-ctas">
           <a href="https://open.kakao.com/o/sK8pgg4g" target="_blank" rel="noopener" class="btn btn-sun btn-sm">
             <img src="images/mascot-hello.png" alt="" class="btn-sticker">
