@@ -100,6 +100,7 @@ section { padding: 120px 0; position: relative; }
   color: #fff; font-family: var(--font-accent); font-size: 18px;
   box-shadow: var(--shadow-sm); flex-shrink: 0;
 }
+.brand-logo-img { height: 38px; width: auto; display: block; flex-shrink: 0; }
 /* hero 위에서는 흰색으로 */
 .nav:not(.scrolled) .brand { color: #fff; }
 .nav:not(.scrolled) .nav-links a { color: rgba(255,255,255,0.85); }
@@ -150,8 +151,9 @@ section { padding: 120px 0; position: relative; }
   border: 1px solid transparent; cursor: pointer; text-decoration: none;
 }
 .btn svg { width: 16px; height: 16px; flex-shrink: 0; }
-.btn-sm { padding: 11px 20px; font-size: 13.5px; gap: 8px; }
+.btn-sm { padding: 9px 20px 9px 12px; font-size: 13.5px; gap: 8px; }
 .btn-sm svg { width: 14px; height: 14px; }
+.btn-sticker { height: 34px; width: auto; flex-shrink: 0; }
 .btn-primary { background: var(--ink); color: var(--bg); box-shadow: 0 8px 22px color-mix(in srgb, var(--ink) 28%, transparent); }
 .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 30px color-mix(in srgb, var(--ink) 36%, transparent); }
 .btn-sun { background: var(--accent); color: var(--ink); box-shadow: 0 8px 22px rgba(242,193,46,0.45); }
@@ -202,14 +204,20 @@ section { padding: 120px 0; position: relative; }
   content: ""; width: 6px; height: 6px; border-radius: 50%;
   background: var(--accent); flex-shrink: 0;
 }
-.hero h1 {
-  font-size: clamp(42px, 6.8vw, 88px);
-  line-height: 1.08;
-  margin: 28px 0 24px;
+.hero-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: center; }
+.hero-quote {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(24px, 3.4vw, 38px);
+  line-height: 1.4;
+  margin: 26px 0 20px;
   color: #fff;
   text-shadow: 0 2px 24px rgba(0,0,0,0.25);
 }
-.hero h1 .accent { color: #fff; }
+.hero-quote .accent { color: var(--accent); }
+.hero-tagline {
+  font-family: var(--font-display); font-weight: 700; font-size: 16px;
+  color: var(--accent); margin-top: 16px;
+}
 .hero-sub {
   font-family: var(--font-display);
   font-size: clamp(16px, 1.4vw, 19px);
@@ -217,7 +225,16 @@ section { padding: 120px 0; position: relative; }
   max-width: 520px;
   line-height: 1.75;
 }
-.hero-ctas { display: flex; gap: 14px; margin-top: 40px; flex-wrap: wrap; }
+.hero-ctas { display: flex; gap: 14px; margin-top: 32px; flex-wrap: wrap; }
+.hero-illustration { display: flex; justify-content: center; }
+.hero-quote-card {
+  width: 100%; max-width: 420px; border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg); display: block;
+}
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-illustration { order: -1; max-width: 260px; margin: 0 auto; }
+}
 .hero-scroll {
   position: absolute; bottom: 36px; left: 50%;
   transform: translateX(-50%);
@@ -232,7 +249,7 @@ section { padding: 120px 0; position: relative; }
   50% { transform: translateX(-50%) translateY(6px); }
 }
 @media (max-width: 760px) {
-  .hero h1 { font-size: clamp(36px, 9vw, 56px); }
+  .hero-quote { font-size: clamp(21px, 6vw, 30px); }
   .hero-ctas { flex-direction: column; align-items: flex-start; }
 }
 
@@ -483,19 +500,13 @@ footer { padding: 64px 0 40px; border-top: 1px solid var(--line); margin-top: 80
 .chat-fab {
   position: relative;
   width: 108px; height: 108px; border-radius: 50%;
-  background: var(--card); border: 3px solid var(--accent-2);
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  padding: 10px 6px; text-align: center;
-  box-shadow: 0 14px 32px rgba(58,40,0,0.24), 0 2px 8px rgba(0,0,0,0.06);
-  transition: transform .25s var(--ease), box-shadow .25s var(--ease);
+  background: transparent; border: none; padding: 0;
+  display: flex; align-items: center; justify-content: center;
+  filter: drop-shadow(0 12px 22px rgba(58,40,0,0.26));
+  transition: transform .25s var(--ease);
 }
-.chat-fab:hover { transform: scale(1.06); box-shadow: 0 18px 40px rgba(58,40,0,0.3); }
-.chat-fab-icon { width: 32px; height: 32px; margin-bottom: 3px; flex-shrink: 0; }
-.chat-fab-name { font-family: var(--font-display); font-weight: 700; font-size: 12.5px; color: var(--ink); line-height: 1.15; }
-.chat-fab-label {
-  margin-top: 4px; font-family: var(--font-body); font-size: 9.5px; font-weight: 700; color: #fff;
-  background: var(--accent-2); padding: 2px 9px; border-radius: 999px; white-space: nowrap;
-}
+.chat-fab:hover { transform: scale(1.06); }
+.chat-fab-img { width: 100%; height: 100%; object-fit: contain; display: block; }
 .chat-fab-close {
   position: absolute; top: -6px; right: -6px; z-index: 2;
   width: 27px; height: 27px; border-radius: 50%;
@@ -524,18 +535,15 @@ footer { padding: 64px 0 40px; border-top: 1px solid var(--line); margin-top: 80
 .chat-panel-close:hover { background: var(--bg-soft); color: var(--ink); }
 .chat-panel-close svg { width: 16px; height: 16px; }
 .chat-panel-head { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; padding-right: 24px; }
-.chat-panel-head .mark { width: 40px; height: 40px; flex-shrink: 0; }
+.chat-panel-head .mark { width: 44px; height: 44px; flex-shrink: 0; object-fit: contain; }
 .chat-panel-head h4 { font-size: 15.5px; }
 .chat-panel-head span { display: block; font-size: 12px; color: var(--ink-mute); margin-top: 2px; }
 .chat-panel p { font-size: 13.5px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 18px; }
 .chat-panel .btn { width: 100%; justify-content: center; }
 @media (max-width: 560px) {
   .chat-fab-wrap { right: 14px; bottom: 84px; }
-  .chat-fab { width: 88px; height: 88px; }
-  .chat-fab-icon { width: 26px; height: 26px; }
-  .chat-fab-name { font-size: 11px; }
-  .chat-fab-label { font-size: 8.5px; padding: 2px 7px; }
-  .chat-panel { right: 14px; bottom: 182px; }
+  .chat-fab { width: 84px; height: 84px; }
+  .chat-panel { right: 14px; bottom: 168px; }
 }
 
 .arrow-inline { width: 14px; height: 14px; }
@@ -549,8 +557,7 @@ footer { padding: 64px 0 40px; border-top: 1px solid var(--line); margin-top: 80
 <nav class="nav" id="mainNav">
   <div class="container nav-inner">
     <a href="#" class="brand">
-      <span class="brand-mark">솜</span>
-      <span>솜사탕어린이집</span>
+      <img src="images/mascot-logo.png" alt="솜사탕어린이집" class="brand-logo-img">
     </a>
     <div class="nav-links">
       <a href="#about">소개</a>
@@ -581,19 +588,25 @@ footer { padding: 64px 0 40px; border-top: 1px solid var(--line); margin-top: 80
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <div class="container">
-      <span class="hero-eyebrow">공공형 어린이집 · 2027학년도 원아 모집 중</span>
-      <h1>처음 만나는<br><span class="accent">아름다운</span> 세상</h1>
-      <p class="hero-sub">솜사탕어린이집은 사랑과 존중을 바탕으로 아이 한 명 한 명의 속도를 기다려 줍니다. 편안하고 안전한 환경에서 스스로 자라는 힘을 길러갑니다.</p>
-      <div class="hero-ctas">
-        <a href="https://open.kakao.com/o/sK8pgg4g" target="_blank" rel="noopener" class="btn btn-sun btn-sm">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-          상담 신청하기
-        </a>
-        <a href="#about" class="btn btn-sun btn-sm">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-          어린이집 둘러보기
-        </a>
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <span class="hero-eyebrow">공공형 어린이집 · 2027학년도 원아 모집 중</span>
+        <p class="hero-quote">"작은 설탕 알갱이가 솜사탕으로 피어나듯,<br>아이들의 작은 가능성이 사랑을 만나<br><span class="accent">아름답게 성장한다</span>"</p>
+        <p class="hero-sub">솜사탕은 작고 하얀 설탕 알갱이가 따뜻한 바람을 만나 보드랍고 달콤한 솜사탕이 되는 것처럼, 아이도 사랑과 관심, 좋은 경험을 만나 자신만의 빛깔로 아름답게 자랍니다.</p>
+        <p class="hero-tagline">우리는 그 과정을 함께하는 '솜사탕의 친구'입니다.</p>
+        <div class="hero-ctas">
+          <a href="https://open.kakao.com/o/sK8pgg4g" target="_blank" rel="noopener" class="btn btn-sun btn-sm">
+            <img src="images/mascot-hello.png" alt="" class="btn-sticker">
+            상담 신청하기
+          </a>
+          <a href="#about" class="btn btn-sun btn-sm">
+            <img src="images/mascot-yay.png" alt="" class="btn-sticker">
+            어린이집 둘러보기
+          </a>
+        </div>
+      </div>
+      <div class="hero-illustration">
+        <img src="images/mascot-quote.png" alt="솜사탕어린이집 마스코트" class="hero-quote-card">
       </div>
     </div>
   </div>
@@ -870,8 +883,7 @@ footer { padding: 64px 0 40px; border-top: 1px solid var(--line); margin-top: 80
     <div class="foot-grid">
       <div>
         <div class="brand" style="margin-bottom:18px;">
-          <span class="brand-mark">솜</span>
-          <span>솜사탕어린이집</span>
+          <img src="images/mascot-logo.png" alt="솜사탕어린이집" class="brand-logo-img">
         </div>
         <p>사랑과 존중으로 아이의 첫 세상을 가꿉니다.<br>따뜻한 하루, 솜사탕어린이집에서 시작하세요.</p>
       </div>
@@ -913,24 +925,9 @@ footer { padding: 64px 0 40px; border-top: 1px solid var(--line); margin-top: 80
 </div>
 
 <!-- CHAT FAB -->
-<svg width="0" height="0" style="position:absolute">
-  <symbol id="chatMascot" viewBox="0 0 48 48">
-    <circle cx="24" cy="24" r="21" fill="url(#chatMascotGrad)"/>
-    <circle cx="16.5" cy="21" r="2.6" fill="#fff"/>
-    <circle cx="31.5" cy="21" r="2.6" fill="#fff"/>
-    <path d="M15 28c2.6 4 5.8 6 9 6s6.4-2 9-6" stroke="#fff" stroke-width="2.6" stroke-linecap="round" fill="none"/>
-    <defs>
-      <linearGradient id="chatMascotGrad" x1="3" y1="3" x2="45" y2="45" gradientUnits="userSpaceOnUse">
-        <stop stop-color="#F2C12E"/><stop offset="1" stop-color="#4A9E6F"/>
-      </linearGradient>
-    </defs>
-  </symbol>
-</svg>
 <div class="chat-fab-wrap" id="chatFabWrap">
   <button class="chat-fab" id="chatFab" aria-label="솜사탕어린이집 양육상담챗봇 열기" aria-expanded="false" aria-controls="chatPanel">
-    <svg class="chat-fab-icon"><use href="#chatMascot"/></svg>
-    <span class="chat-fab-name">솜사탕어린이집</span>
-    <span class="chat-fab-label">양육상담챗봇</span>
+    <img src="images/mascot-badge.png" alt="솜사탕어린이집 양육상담챗봇" class="chat-fab-img">
   </button>
   <button class="chat-fab-close" id="chatFabClose" aria-label="챗봇 버튼 숨기기">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
@@ -941,7 +938,7 @@ footer { padding: 64px 0 40px; border-top: 1px solid var(--line); margin-top: 80
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
   </button>
   <div class="chat-panel-head">
-    <svg class="mark"><use href="#chatMascot"/></svg>
+    <img src="images/mascot-badge.png" alt="" class="mark">
     <div>
       <h4>솜사탕어린이집 양육상담챗봇</h4>
       <span>아이 키우며 고민되는 모든 것을 편하게 물어보세요</span>
