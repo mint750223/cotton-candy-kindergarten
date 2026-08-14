@@ -259,6 +259,56 @@ section { padding: 120px 0; position: relative; }
 .sec-head p { color: var(--ink-soft); font-size: 15px; line-height: 1.75; }
 @media (max-width: 760px) { .sec-head { grid-template-columns: 1fr; align-items: flex-start; gap: 18px; margin-bottom: 36px; } }
 
+/* ============ why somsatang ============ */
+.why-section { background: var(--card); }
+.why-content { max-width: 680px; margin: 0 auto; text-align: center; }
+.why-icon { font-size: 34px; display: block; margin-bottom: 14px; }
+.why-content h2 { font-size: clamp(28px, 3.4vw, 40px); margin-bottom: 28px; text-wrap: balance; }
+.why-content p { font-size: 15.5px; color: var(--ink-soft); line-height: 1.9; margin-bottom: 22px; text-align: left; }
+.why-content strong { color: var(--ink); font-weight: 700; }
+.why-lead {
+  font-family: var(--font-display); font-size: 19px; font-weight: 700;
+  color: var(--accent-3); text-align: center !important; margin-bottom: 30px;
+}
+.why-activities {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;
+  margin: -6px 0 26px;
+}
+.why-activities span {
+  font-family: var(--font-body); font-size: 13px; font-weight: 600; color: var(--accent-3);
+  background: color-mix(in srgb, var(--accent-2) 12%, var(--bg)); border: 1px solid color-mix(in srgb, var(--accent-2) 30%, transparent);
+  padding: 8px 16px; border-radius: 999px;
+}
+.why-affirmations {
+  background: var(--bg-soft); border-radius: var(--radius-lg);
+  padding: 28px 24px; margin: -6px 0 26px; display: flex; flex-direction: column; gap: 12px;
+}
+.why-affirmations p {
+  font-family: var(--font-display); font-size: 17px; font-weight: 700;
+  color: var(--ink); text-align: center; margin: 0;
+}
+.why-poem, .why-closing {
+  font-family: var(--font-display); font-size: 18px; line-height: 1.7;
+  text-align: center; color: var(--ink);
+}
+.why-poem { margin-bottom: 26px; }
+.why-closing { font-weight: 700; margin-bottom: 40px; }
+.why-signature {
+  border-top: 1px solid var(--line); padding-top: 28px;
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+}
+.why-signature p {
+  font-family: var(--font-display); font-style: italic; font-size: 16px;
+  color: var(--ink-soft); margin: 0; text-align: center;
+}
+.why-signature span {
+  font-family: var(--font-display); font-weight: 700; font-size: 18px; color: var(--accent-3);
+}
+@media (max-width: 600px) {
+  .why-content p, .why-lead { text-align: left; }
+  .why-lead { text-align: center !important; }
+}
+
 /* ============ name story ============ */
 .name-story { background: var(--bg-soft); }
 .name-story-intro { max-width: 700px; margin: 0 auto 48px; text-align: center; }
@@ -651,6 +701,56 @@ footer { padding: 64px 0 40px; border-top: 1px solid var(--line); margin-top: 80
   <div class="hero-scroll">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
     scroll
+  </div>
+</section>
+
+<!-- WHY SOMSATANG -->
+<section class="why-section" id="why">
+  <div class="container">
+    <div class="why-content">
+      <span class="why-icon">☁️</span>
+      <h2>왜 '솜사탕어린이집'일까요?</h2>
+      <p class="why-lead">어린 시절은 다시 돌아오지 않는 아주 특별한 시간입니다.</p>
+
+      <p>저희는 아이들이 어린이집에서 보내는 하루하루가 <strong>'무엇을 많이 배우는 시간'보다 '사랑받고 있다는 것을 느끼는 시간'</strong>이었으면 좋겠다고 생각했습니다. 그래서 아이들의 첫 번째 세상이 될 어린이집의 이름을 <strong>'솜사탕어린이집'</strong>이라고 지었습니다.</p>
+
+      <p>솜사탕은 작고 평범한 설탕 알갱이가 따뜻한 바람을 만나 보드랍고 달콤한 솜사탕으로 피어나는 것처럼, 아이들도 저마다 가진 작은 가능성이 사랑과 관심, 좋은 경험을 만나 자신만의 아름다운 모습으로 성장한다고 믿기 때문입니다.</p>
+
+      <p>솜사탕의 '솜'처럼 포근하게 안아주고, 달콤한 솜사탕처럼 행복한 기억을 선물하며, 아이들이 저마다의 색깔로 아름답게 피어날 수 있도록 돕는 것. 그것이 저희가 생각하는 보육의 시작입니다.</p>
+
+      <p>저희는 아이를 정해진 틀에 맞추어 키우기보다 아이마다 다른 속도와 기질, 관심과 가능성을 존중하는 교육을 중요하게 생각합니다. 흙을 만지고, 숲을 걷고, 재료를 탐색하고, 마음껏 놀이하고, 친구와 웃고 때로는 다투면서 다시 관계를 배워가는 모든 순간을 아이에게는 소중한 배움이라고 생각합니다.</p>
+
+      <p>그래서 솜사탕어린이집에는 아이들이 직접 경험하고 느끼며 세상을 알아가는 활동을 담아가고 있습니다.</p>
+      <div class="why-activities">
+        <span>식재료 오감활동</span>
+        <span>숲체험</span>
+        <span>부모 참여활동</span>
+        <span>아빠와 함께하는 경험</span>
+        <span>초록발자국 데이</span>
+      </div>
+
+      <p>우리가 아이들에게 가르치고 싶은 것은 정답을 빨리 찾는 능력만이 아닙니다.</p>
+      <div class="why-affirmations">
+        <p>"나는 소중한 사람이야."</p>
+        <p>"나는 사랑받고 있어."</p>
+        <p>"나는 내가 좋아하는 것을 마음껏 해볼 수 있어."</p>
+        <p>"세상은 궁금하고 재미있는 곳이야."</p>
+      </div>
+      <p>라는 마음을 어린 시절부터 품게 해주는 것, 그리고 그 마음을 바탕으로 스스로 생각하고, 다른 사람을 배려하고, 자연과 세상을 소중히 여기는 사람으로 자라도록 돕는 것. 그것이 솜사탕어린이집이 생각하는 교육입니다.</p>
+
+      <p>그래서 우리에게 '솜사탕'은 단순히 귀여운 이름이 아닙니다. <strong>아이를 사랑으로 감싸는 '포근함', 아이의 마음을 행복하게 하는 '달콤함', 그리고 작은 가능성이 아름답게 피어나는 '성장'</strong>을 의미합니다.</p>
+
+      <p>그리고 그 안에서 아이들이 만들어가는 하루하루의 이야기가 바로 <strong>'솜사탕의 추억'</strong>이 되기를 바랍니다.</p>
+
+      <p class="why-poem">작은 손으로 큰 꿈을 키우고,<br>사랑 속에서 마음이 자라고,<br>행복한 기억을 가득 안고 자라는 아이들.</p>
+
+      <p class="why-closing">그런 어린 시절을 선물하고 싶어서<br>우리는 <strong>솜사탕어린이집</strong>입니다. ☁️🌱</p>
+
+      <div class="why-signature">
+        <p>"작은 손으로 큰 꿈을, 함께 자라는 행복한 우리."</p>
+        <span>솜사탕어린이집</span>
+      </div>
+    </div>
   </div>
 </section>
 
